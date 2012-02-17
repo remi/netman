@@ -1,0 +1,206 @@
+******************************************************************
+
+<*> Network Management v1.45
+
+<?> by fiz formerly known as Kw1KSiLvR (back in 2001...)
+
+<@> http://exomel.com/code/
+<#> irc.pixelarmy.us on #pixelarmy and #skinnables
+
+<!> /netman to open the setup dialog
+
+******************************************************************
+
+-->> Note 1: Please view this file in a "non-wraped" lines text editor.
+-->> Note 2: See netman.mrc for versions history.
+
+*** --------
+*** Contents
+*** --------
+
+1. Introduction
+2. Installation
+3. Using Netman
+4. Credits & Copyright
+
+######## ------------
+######## Introduction
+######## ------------
+
+Thank you for downloading my addon, Network Management. As 
+you may have read on some web pages:
+
+"Netman is an addon that allows you to manage the 
+different IRC networks you connect on with mIRC,
+since mIRC has multi-server capabilities. You can
+add an auto-identify command, usermodes and auto-join
+channels for each seperated network."
+
+Enjoy it!
+
+
+
+######## -------------------------
+######## Installation Instructions
+######## -------------------------
+
+1. Unzip all the files contained in "netman.zip" somewhere
+   in your hard drive. I suggest you to unzip it in your mIRC
+   directory (or inside a folder in your mIRC directory).
+
+2. Open mIRC (Do I really need to write this...?)
+
+3. In your Status Window, type this:
+
+    
+   ¦
+   ¦  /load -rs path/to/netman.mrc
+   ¦
+    
+   
+  ** E.g. If you have unzipped "netman.zip" in "C:\mIRC\", then type
+   
+     /load -rs C:\mIRC\netman.mrc   
+
+4. Use the popup menu in the Status Window to open the setup dialog,
+   or type /netman
+
+5. Send feedback with http://exomel.com/contact/
+6. Enjoy Netman!
+
+
+
+######## ------------
+######## Using Netman
+######## ------------
+
+  ## -------------
+  ## Add a network
+  ## -------------
+
+     1. Click "Add" at the below the main list. Type
+     the network name you want to add
+     
+     2. Click the network name that has just appeared in the main list.
+     3. Enter a server that connects to the network you added.
+     4. Enter your connection infos (nick, server, fullname, etc.)
+     5. Modify the settings you want.
+     
+  ## ------------------------------   
+  ## Remove a network from the list
+  ## ------------------------------
+  
+     1. Click the network name you want to remove in the main list.
+     2. Click Delete below the main list.
+     3. Click "Yes" if you still want to remove it, or click "No"
+     if you no longer want to remove it.
+     
+  ## ---------------------------------------
+  ## Add some channels to the auto-join list
+  ## ---------------------------------------
+  
+     1. Click the network name you want to add channels to.
+     2. Selec the "Advanced" tab.
+     3. Click the "Add" button under the channels list. Not 
+     the one under the networks list.
+     4. Type the name of the channel with this syntax:
+     
+        #channel_name channel_password
+        
+     Of course, if the channel doesn't have a password, you
+     only have to type the channel name.
+
+  ## -----------------
+  ## The Login command
+  ## -----------------
+  
+     ** Trick: Use a "." after your command slash,
+        to make the command invisible (quiet) to you.
+     
+     * Notes:
+     
+      I adapted the login box to be secret-identifiers and input-dialogs compliant
+        
+        >> So you can have the command
+        
+          /.nickserv identify $mysecretpass
+        
+        and the identifier "$mysecretpass" won't be evaluated until the login event. Not
+        everytime you open the setup dialog. The password is also not evaluated
+        when stored in the .ini file.
+        
+        >> Also, you can use flexible input dialogs to request for a password input,
+        something you normally cannot do . The solution: a 1-millisecond timer doing
+        the job. So you can have
+        
+          /.nickserv identify $input(Enter password,130,Network Management)
+        
+        as your login command.
+        
+      Also, if you are in the need to execute multiple commands when connecting, you
+      can create an alias doing the commands for you. Example: "/mylogin" as your login
+      command. And you add to your "Aliases" tab (ALT+R) :
+        
+      
+        ; My Login Commands
+        ; -----------------
+                   
+        /mylogin {
+           
+         .nickserv identify my_stupid_password
+         .msg myBot login Master my_other_password
+          
+        }
+        ;end
+                    
+        
+      Or, in the Network Management dialog, you can simply seperate the two (or
+      Whatever number) commands with a "|".
+
+
+  ## -----------------------------------
+  ## Integrate into Status Windows popup
+  ## -----------------------------------
+  
+    To remove or put back the Netman popup menu in the Status Window:
+    
+    1. Type /netman
+    2. Check/Uncheck the checkbox labeled "Integrate into Status Windows popup"
+  
+   
+    * Note:
+    
+      If you disable the Netman popup from Status Window, the only way that
+      will be possible for you yo open the setup dialog is doing it by typing
+      "/netman" in any window. Be careful. No any other popup will be there.
+
+
+     
+  ## ---------------------------
+  ## Other functions and options
+  ## ---------------------------
+  
+     Well... I think all the other functions and options are pretty
+     instinctive to use. However, if you have any questions or comments
+     regarding this addon, send them to remi@exomel.com
+     
+     
+
+######## -------------------
+######## Credits & Copyright
+######## -------------------
+
+If you want to use this addon as a part of a full mIRC script that you'll release
+on the web, please ask my permission before doing it.
+
+Network Management is provided AS IS without warranty of any kind, either express 
+or implied, including but not limited to the implied warranties of
+merchantability and fitness for a particular purpose. In no event shall
+Remi Prevost be liable for any damages whatsoever including direct,
+indirect, incidental, consequential, loss of business profits or special
+damages.
+
+This addon's code, concept and design is © copyright Remi Prevost 2003-2005
+
+
+######## End of Readme.
